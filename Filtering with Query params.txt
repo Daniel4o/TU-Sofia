@@ -1,0 +1,14 @@
+			 return Object.keys(filters).every((key) => {
+			 	if (Array.isArray(hero[key])) {
+			 		const currentFilterArray = filters[key].split(",");
+
+			 		return hero[key]
+			 			.map((element) => element.toLocaleLowerCase())
+			 			.some((element) =>
+			 				currentFilterArray.includes(element),
+			 			);
+			 	}
+			 	const filterValue = +filters[key] || filters[key];
+
+                 return filterValue === hero[key];
+			});
